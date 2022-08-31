@@ -68,11 +68,11 @@
 
     <!-- (B2) TOAST MESSAGE -->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index:11">
-      <div id="cb-toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div id="cb-toast" class="toast hide" role="alert">
         <div class="toast-header">
           <span id="cb-toast-icon" class="mi"></span>
           <strong id="cb-toast-head" class="me-auto p-1"></strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
         </div>
         <div id="cb-toast-body" class="toast-body"></div>
       </div>
@@ -82,7 +82,7 @@
     <div id="cb-modal" class="modal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
       <div class="modal-header">
         <h5 id="cb-modal-head" class="modal-title"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div id="cb-modal-body" class="modal-body"></div>
       <div id="cb-modal-foot" class="modal-footer">
@@ -92,12 +92,12 @@
     <!-- (C) MAIN NAV BAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"><div class="container-fluid">
       <!-- (C1) MENU TOGGLE BUTTON -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cb-navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- (C2) COLLAPSABLE WRAPPER -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="cb-navbar">
         <!-- (C2-1) BRANDING LOGO -->
         <a class="navbar-brand" href="<?=HOST_BASE?>">
           <img src="<?=HOST_ASSETS?>favicon.png" loading="lazy" width="32" height="32"/>
