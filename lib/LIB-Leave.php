@@ -161,7 +161,7 @@ class Leave extends Core {
     // (F3) CHECK DAYS LEFT
     $entitled = $this->getEntitled($_SESS["user"]["user_id"], substr($from, 0, 4));
     if ($entitled[$type]["leave_left"] < $total) {
-      $this->error = "You only have ".$entitled[$type]["leave_left"]." days of ".strtolower($entitled[$type]["leave_name"])." leave left!";
+      $this->error = "You only have ".$entitled[$type]["leave_left"]." days of leave left!";
       return false;
     }
     unset($entitled);
