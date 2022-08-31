@@ -5,9 +5,9 @@ Cadre is a free and open-source PHP Staff Management System. Not the best in the
 
 ## SCREENSHOTS
 <p float="left">
-<img width="300" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-1.png">
-<img width="300" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-2.png">
-<img width="300" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-3.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-1.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-2.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-3.png">
 </p><br><br>
 
 
