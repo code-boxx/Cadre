@@ -18,9 +18,17 @@ Cadre is a free and open-source PHP Staff Management System. Not the best in the
 <br><br>
 
 
+## FEATURES
+1) Manage staff – Add/update/suspend.
+2) Manage leave – Apply, approve, and deny.
+3) Progressive web app.
+4) Maybe more in the future – Reports, calendar, timesheet, etc…
+<br><br>
+
+
 ## QUICK START & DOCUMENTATION
 1) Cadre is built on [Bootstrap](https://getbootstrap.com/), [Material Icons](https://fonts.google.com/icons), and [Core Boxx](https://code-boxx.com/core-boxx-php-rapid-development-framework/).
-2) Visit https://code-boxx.com/cadre-php-staff-management-system/ for the documentation.
+2) Visit https://code-boxx.com/cadre-php-staff-management-system/ for the full documentation.
 <br><br>
 
 
