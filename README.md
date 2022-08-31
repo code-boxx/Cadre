@@ -1,8 +1,14 @@
 ## CADRE
 Cadre is a free and open-source PHP Staff Management System. Not the best in the world, but this simple portal has the basic features to help small companies to get started quickly.
+<br><br>
+
 
 ## SCREENSHOTS
-<p float="left"></p><br><br>
+<p float="left">
+<img width="300" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-1.png">
+<img width="300" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-2.png">
+<img width="300" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-3.png">
+</p><br><br>
 
 
 ## REQUIREMENTS & INSTALLATION
