@@ -11,12 +11,16 @@ Cadre is a free and open-source PHP Staff Management System. Not the best in the
 </p><br><br>
 
 
-## REQUIREMENTS & INSTALLATION
-1) Developed and tested on a WAMP server.
-2) PHP-PDO-MYSQL and Apache Mod Rewrite required.
-2) Just access `http://your-site.com/` in your browser to launch the installer. This will automatically create an empty project database and generate the necessary `.htaccess` file.
+## REQUIREMENTS
+1) LAMP/WAMP/MAMP/XAMPP
+2) Apache Mod Rewrite
+3) PHP MYSQL PDO Extension
+4) At least PHP 8.0
 <br><br>
 
+## INSTALLATION
+Just access `http://your-site.com/` in your browser and walk through the installer.
+<br><br>
 
 ## FEATURES
 1) Manage staff – Add/update/suspend.
@@ -25,12 +29,10 @@ Cadre is a free and open-source PHP Staff Management System. Not the best in the
 4) Maybe more in the future – Reports, calendar, timesheet, etc…
 <br><br>
 
-
-## QUICK START & DOCUMENTATION
-1) Cadre is built on [Bootstrap](https://getbootstrap.com/), [Material Icons](https://fonts.google.com/icons), and [Core Boxx](https://code-boxx.com/core-boxx-php-rapid-development-framework/).
+## DOCUMENTATION & FRAMEWORKS
+1) Built on [Bootstrap](https://getbootstrap.com/), [Material Icons](https://fonts.google.com/icons), and [Core Boxx](https://code-boxx.com/core-boxx-php-rapid-development-framework/).
 2) Visit https://code-boxx.com/cadre-php-staff-management-system/ for the full documentation.
 <br><br>
-
 
 ## LICENSE
 Copyright by Code Boxx
