@@ -338,8 +338,8 @@ if ($_PHASE == "E") {
   unset($_POST); unset($hbase);
 
   // (E7) BACKUP LIB/CORE-CONFIG.PHP
-  if (!copy(I_LIB . "CORE-config.php", I_LIB . "CORE-config.old")) {
-    exit("Failed to backup config file - " . I_LIB . "CORE-config.old");
+  if (!copy(I_LIB . "CORE-config.php", I_LIB . "CORE-Config.old")) {
+    exit("Failed to backup config file - " . I_LIB . "CORE-Config.old");
   }
 
   // (E8) UPDATE LIB/CORE-CONFIG.PHP

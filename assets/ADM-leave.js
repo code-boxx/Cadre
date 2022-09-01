@@ -43,6 +43,18 @@ var leave = {
       passmsg : "Leave updated",
       onpass : leave.list
     });
+  },
+
+  // (E) CANCEL LEAVE
+  cancel : (id) => {
+    cb.modal("Please Confirm", "Cancel leave?", () => {
+      cb.api({
+        mod : "leave", req : "cancel",
+        data : { id : id },
+        passmsg : "Leave canceled",
+        onpass : leave.list
+      });
+    });
   }
 };
 window.addEventListener("load", leave.set);

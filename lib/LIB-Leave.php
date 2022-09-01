@@ -66,11 +66,9 @@ class Leave extends Core {
 
       // (C2-2) PAGINATION
       if ($page != null) {
-        $pgn = $this->core->paginator(
-          $this->DB->fetchCol(
-            "SELECT COUNT(*) FROM `leave_taken` WHERE `leave_from` BETWEEN ? AND ?", $data
-          ), $page
-        );
+        $this->core->paginator($this->DB->fetchCol(
+          "SELECT COUNT(*) FROM `leave_taken` WHERE `leave_from` BETWEEN ? AND ?", $data
+        ), $page);
       }
 
       // (C2-3) SQL
@@ -79,13 +77,10 @@ class Leave extends Core {
               LEFT JOIN `users` u USING (`user_id`)
               WHERE `leave_from` BETWEEN ? AND ?
               ORDER BY `leave_from` DESC";
-      if ($page != null) { $sql .= " LIMIT {$pgn["x"]}, {$pgn["y"]}"; }
+      if ($page != null) { $sql .= $this->core->page["lim"]; }
 
       // (C2-3) RESULTS
-      $leave = $this->DB->fetchAll($sql, $data, "leave_id");
-      return $page != null
-        ? ["data" => $leave, "page" => $pgn]
-        : $leave ;
+      return $this->DB->fetchAll($sql, $data, "leave_id");
     }
 
     // (C3) FETCH OWN LEAVE RECORDS
@@ -225,15 +220,13 @@ class Leave extends Core {
   function cancel ($id) {
     // (G1) CHECK PERMISSION
     global $_SESS;
-    $leave = $this->DB->fetch(
-      "SELECT * FROM `leave_taken` WHERE `leave_id`=?",
-      [$id]
-    );
-    $valid = is_array($leave);
-    if ($valid) { $valid = $leave["leave_status"]=="P"; }
+    $valid = isset($_SESS["user"]);
     if ($valid) {
-      $valid = $_SESS["user"]["user_level"]=="A" || $leave["user_id"]==$_SESS["user"]["user_id"];
+      $leave = $this->DB->fetch("SELECT * FROM `leave_taken` WHERE `leave_id`=?", [$id]);
+      $valid = is_array($leave);
     }
+    if ($valid && $_SESS["user"]["user_level"]=="U") { $valid = $leave["leave_status"]=="P"; }
+    if ($valid) { $valid = $_SESS["user"]["user_level"]=="A" || $leave["user_id"]==$_SESS["user"]["user_id"]; }
     if (!$valid) {
       $this->error = "Invalid request";
       return false;

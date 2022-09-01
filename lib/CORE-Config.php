@@ -31,8 +31,8 @@ define("PATH_PAGES", PATH_BASE . "pages" . DIRECTORY_SEPARATOR);
 // (E) JSON WEB TOKEN
 define("JWT_ALGO", "HS256");
 define("JWT_EXPIRE", 0);
-define("JWT_ISSUER", "localhost");
-define("JWT_SECRET", "Dcb7eM4k.XEQfdobzsiDw_6D7U4ZJ46H4=LsL3H9d3VwgGQZ");
+define("JWT_ISSUER", "YOUR-NAME");
+define("JWT_SECRET", "YOUR-SECRET-KEY");
 
 // (F) ERROR HANDLING
 /* (F1) RECOMMENDED FOR LIVE SERVER

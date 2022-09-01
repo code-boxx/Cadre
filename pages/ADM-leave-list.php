@@ -5,7 +5,7 @@ $_CORE->load("Leave");
 $leave = $_CORE->autoCall("Leave", "getAllTaken");
 
 // (B) DRAW LEAVE LIST
-if (is_array($leave["data"])) { foreach ($leave["data"] as $id=>$l) { ?>
+if (is_array($leave)) { foreach ($leave as $id=>$l) { ?>
 <div class="d-flex align-items-center border p-2">
   <div class="flex-grow-1">
     <div>
@@ -22,16 +22,23 @@ if (is_array($leave["data"])) { foreach ($leave["data"] as $id=>$l) { ?>
     </div>
   </div>
   <div>
+    <button class="btn btn-danger btn-sm mi" onclick="leave.cancel(<?=$id?>, false)">
+      delete
+    </button>
+    <?php if ($l["leave_status"]=="P" || $l["leave_status"]=="A") { ?>
     <button class="btn btn-danger btn-sm mi" onclick="leave.permit(<?=$id?>, false)">
       close
     </button>
+    <?php } ?>
+    <?php if ($l["leave_status"]=="P" || $l["leave_status"]=="D") { ?>
     <button class="btn btn-primary btn-sm mi" onclick="leave.permit(<?=$id?>, true)">
       done
     </button>
+    <?php } ?>
   </div>
 </div>
 <?php }} else { echo "No leave records found."; }
 
 // (C) PAGINATION
 $_CORE->load("Page");
-$_CORE->Page->draw($leave["page"], "leave.goToPage");
+$_CORE->Page->draw("leave.goToPage");
