@@ -28,10 +28,6 @@ class Forgot extends Core {
       $this->error = "$email is not registered.";
       return false;
     }
-    if ($user["user_level"]=="S") {
-      $this->error = "$email is not a valid user.";
-      return false;
-    }
 
     // (C3) CHECK PREVIOUS REQUEST (PREVENT SPAM)
     $req = $this->get($user["user_id"]);

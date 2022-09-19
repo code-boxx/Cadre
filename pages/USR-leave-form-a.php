@@ -8,8 +8,8 @@ $today = date("Y-m-d");
 // (B) HTML ?>
 <!-- (B1) REMAINING LEAVE -->
 <h3 class="mb-3">LEAVE REMAINING</h3>
-<table class="table table-dark table-striped mb-5">
-  <thead><tr>
+<table class="table table-striped mb-5">
+  <thead><tr class="table-dark">
     <th>Type</th>
     <th>Entitled</th>
     <th>Taken</th>
@@ -34,7 +34,7 @@ $today = date("Y-m-d");
     <div class="input-group-prepend">
       <span class="input-group-text mi">checklist</span>
     </div>
-    <select class="form-control" id="apply_type"><?php
+    <select class="form-select" id="apply_type"><?php
       foreach (LEAVE_TYPES as $c=>$n) {
         echo "<option value='$c'>$n</option>";
       }

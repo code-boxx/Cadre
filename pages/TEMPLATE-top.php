@@ -43,6 +43,7 @@
     #cb-loading{transition:opacity .3s}.cb-hide{opacity:0;visibility:hidden;height:0}.cb-pg-hide{display:none}
     #cb-loading{width:100vw;height:100vh;position:fixed;top:0;left:0;z-index:999;background:rgba(0,0,0,.7)}#cb-loading .spinner-border{width:80px;height:80px}
     .head{background:#ddd}.zebra .d-flex{background:#fff;margin-bottom:10px}.zebra .d-flex:nth-child(odd){background-color:#f1f1f1}.pagination{border:1px solid #d0e8ff;background:#f0f8ff}
+    #cb-body,body{min-height:100vh}#cb-toggle{display:none}#cb-side{width:155px;flex-shrink:0}#cb-side a{color:#fff}#cb-side .mi{color:#6a6a6a}@media screen and (max-width:768px){#cb-toggle{display:block}#cb-side{display:none}#cb-side.show{display:block}}#reader{max-width:380px}
     </style>
     <script>var cbhost={base:"<?=HOST_BASE?>",api:"<?=HOST_API_BASE?>",assets:"<?=HOST_ASSETS?>"};</script>
     <script defer src="<?=HOST_ASSETS?>PAGE-cb.js"></script>
@@ -89,45 +90,40 @@
       </div>
     </div></div></div>
 
-    <!-- (C) MAIN NAV BAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"><div class="container-fluid">
-      <!-- (C1) MENU TOGGLE BUTTON -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cb-navbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- (C2) COLLAPSABLE WRAPPER -->
-      <div class="collapse navbar-collapse" id="cb-navbar">
-        <!-- (C2-1) BRANDING LOGO -->
-        <a class="navbar-brand" href="<?=HOST_BASE?>">
-          <img src="<?=HOST_ASSETS?>favicon.png" loading="lazy" width="32" height="32"/>
-        </a>
-
-        <?php if (isset($_SESS["user"])) { ?>
-        <!-- (C2-2) LEFT MENU ITEMS -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"><?php
-          require $_SESS["user"]["user_level"]=="A" 
-            ? PATH_PAGES . "TEMPLATE-admin.php" 
-            : PATH_PAGES . "TEMPLATE-user.php" ;
-        ?></ul>
-        <?php } ?>
-      </div>
-
+    <!-- (C) MAIN INTERFACE -->
+    <div id="cb-body" class="d-flex">
       <?php if (isset($_SESS["user"])) { ?>
-      <!-- (C3) RIGHT USER -->
-      <div class="d-flex align-items-center">
-        <a class="dropdown-toggle text-decoration-none text-white mx-2"
-           data-bs-toggle="dropdown">
-            <span class="mi">person</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-          <li><a class="dropdown-item" href="<?=HOST_BASE?>account">My Account</a></li>
-          <li><div class="dropdown-item" onclick="cb.bye()">Logout</div></li>
-        </ul>
-      </div>
+      <!-- (C1) LEFT SIDEBAR -->
+      <nav id="cb-side" class="bg-dark text-white p-2"><ul class="navbar-nav me-auto mb-2 mb-lg-0"><?php
+        require $_SESS["user"]["user_level"]=="A" 
+          ? PATH_PAGES . "TEMPLATE-admin.php" 
+          : PATH_PAGES . "TEMPLATE-user.php" ;
+      ?></ul></nav>
       <?php } ?>
-    </div></nav>
 
-    <!-- (D) MAIN PAGE -->
-    <div class="container pt-4">
-      <div id="cb-page-1">
+      <!-- (C2) RIGHT CONTENTS -->
+      <div class="flex-grow-1">
+        <?php if (isset($_SESS["user"])) { ?>
+        <!-- (C2-1) TOP NAV -->
+        <nav class="d-flex bg-dark text-white p-1">
+          <div class="flex-grow-1">
+            <button id="cb-toggle" class="btn btn-sm mi text-white" onclick="cb.toggle()">
+              menu
+            </button>
+          </div>
+          <div class="d-flex align-items-center">
+            <a class="dropdown-toggle text-decoration-none text-white mx-2"
+              data-bs-toggle="dropdown">
+                <span class="mi">person</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+              <li><a class="dropdown-item" href="<?=HOST_BASE?>account">My Account</a></li>
+              <li><div class="dropdown-item" onclick="cb.bye()">Logout</div></li>
+            </ul>
+          </div>
+        </nav>
+        <?php } ?>
+
+        <!-- (C2-2) CONTENTS -->
+        <div class="p-4">
+          <div id="cb-page-1">

@@ -1,9 +1,5 @@
 <?php
-$_PMETA = [
-  "title" => "Staff Leave",
-  "load" => [["s", HOST_ASSETS."USR-leave.js", "defer"]]
-];
-
+$_PMETA = ["load" => [["s", HOST_ASSETS."USR-leave.js", "defer"]]];
 require PATH_PAGES . "TEMPLATE-top.php"; ?>
 <!-- (A) HEADER -->
 <h3>MY LEAVE RECORDS</h3>
@@ -12,7 +8,7 @@ require PATH_PAGES . "TEMPLATE-top.php"; ?>
 <!-- (B) YEAR BAR -->
 <form class="d-flex align-items-stretch mb-3 p-2 head" onsubmit="return leave.set()">
   <input type="number" id="leave-year" placeholder="Year" class="form-control form-control-sm" value="<?=date("Y")?>">
-  <button class="btn btn-primary mi me-1">
+  <button class="btn btn-primary mi mx-1">
     search
   </button>
   <button class="btn btn-primary mi" onclick="leave.apply()">

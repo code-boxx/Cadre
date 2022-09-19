@@ -3,6 +3,7 @@ var cb = {
   hLoad : null,  // loading
   hToast : null, // toast
   hModal : null, // popup dialog
+  hSide : null, // sidebar
   hPages : [], // page sections
   init : () => {
     // (A1) LOADING SPINNER
@@ -28,6 +29,9 @@ var cb = {
     for (let i=1; i<=5; i++) {
       cb.hPages.push(document.getElementById("cb-page-"+i));
     }
+
+    // (A5) SIDEBAR
+    cb.hSide = document.getElementById("cb-side");
   },
 
   // (B) HTML INTERFACE
@@ -76,6 +80,9 @@ var cb = {
     if (i==num) { cb.hPages[i].classList.remove("d-none"); }
     else { cb.hPages[i].classList.add("d-none"); }
   }},
+
+  // (B5) TOGGLE SIDEBAR
+  toggle : () => { cb.hSide.classList.toggle("show"); },
 
   // (C) AJAX CALL
   //  url : string, target URL
@@ -194,7 +201,7 @@ var cb = {
 
     // (E2) ON AJAX LOAD
     options.onpass = (res) => {
-      if (res=="E") { location.href = cbhost.base; }
+      if (res=="E") { location.href = cbhost.base + "login/"; }
       else {
         document.getElementById(opt.target).innerHTML = res;
         if (opt.onload) { opt.onload(); }

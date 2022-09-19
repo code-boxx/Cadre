@@ -25,7 +25,7 @@ $taken = $_CORE->Leave->getTaken($_SESS["user"]["user_id"], $_POST["from"], $_PO
       <div class="text-danger">You have already applied leave on this date.</div>
       <?php } ?>
     </div>
-    <select data-date="<?=$date?>" class="form-control w-auto" onchange="leave.total()"<?=$dayNo||$clash?" disabled":""?>>
+    <select data-date="<?=$date?>" class="form-select w-auto" onchange="leave.total()"<?=$dayNo||$clash?" disabled":""?>>
       <?php if ($clash || $dayNo) { ?>
       <option value="0">NA</option>
       <?php } else { ?>

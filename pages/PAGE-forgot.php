@@ -6,10 +6,7 @@ if (isset($_SESS["user"])) {
 
 // (B) PART 1 - ENTER EMAIL
 if (!isset($_GET["i"]) && !isset($_GET["h"])) {
-$_PMETA = [
-  "title" => "Forgot Password",
-  "load" => [["s", HOST_ASSETS."PAGE-forgot.js"]]
-];
+$_PMETA = ["load" => [["s", HOST_ASSETS."PAGE-forgot.js"]]];
 require PATH_PAGES . "TEMPLATE-top.php"; ?>
 <form class="bg-white border p-4" onsubmit="return forgot()">
   <h3 class="mb-4">FORGOT PASSWORD</h3>

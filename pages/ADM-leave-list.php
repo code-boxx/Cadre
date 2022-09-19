@@ -8,18 +8,9 @@ $leave = $_CORE->autoCall("Leave", "getAllTaken");
 if (is_array($leave)) { foreach ($leave as $id=>$l) { ?>
 <div class="d-flex align-items-center border p-2">
   <div class="flex-grow-1">
-    <div>
-      <strong>Date:</strong> <?=$l["leave_from"]?> to <?=$l["leave_to"]?>
-    </div>
-    <div>
-      <strong>Staff:</strong> <?=$l["user_name"]?> (<?=$l["user_email"]?>)
-    </div>
-    <div>
-      <strong>Type:</strong> <?=LEAVE_TYPES[$l["leave_type"]]?>
-    </div>
-    <div>
-      <strong>Status:</strong> <?=LEAVE_STATUS[$l["leave_status"]]?>
-    </div>
+    <strong><?=$l["user_name"]?> (<?=$l["user_email"]?>)</strong><br>
+    <?=$l["leave_from"]?> to <?=$l["leave_to"]?> (<?=LEAVE_TYPES[$l["leave_type"]]?>)<br>
+    <?=LEAVE_STATUS[$l["leave_status"]]?>
   </div>
   <div>
     <button class="btn btn-danger btn-sm mi" onclick="leave.cancel(<?=$id?>, false)">

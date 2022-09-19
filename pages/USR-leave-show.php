@@ -1,12 +1,10 @@
 <?php
 // (A) GET LEAVE DAYS
-$_CORE->Settings->defineN(
-  ["LEAVE_DAYS", "LEAVE_STATUS", "LEAVE_TYPES"], true
-);
+$_CORE->Settings->defineN(["LEAVE_DAYS", "LEAVE_STATUS", "LEAVE_TYPES"], true);
 $leave = $_CORE->autoCall("Leave", "getTaken");
 
 // (B) HTML ?>
-<table class="table table-dark">
+<table class="table table-striped">
   <tr>
     <th>Period</th>
     <td><?=$leave["leave_from"]?> to <?=$leave["leave_to"]?> </td>
@@ -33,6 +31,6 @@ $leave = $_CORE->autoCall("Leave", "getTaken");
     );
   }
 ?></ul>
-<button class="btn btn-danger btn-sm" onclick="cb.page(0)">
+<button class="btn btn-danger" onclick="cb.page(0)">
   Back
 </button>

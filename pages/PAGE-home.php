@@ -5,10 +5,7 @@ if (isset($_SESS["user"])) {
 }
 
 // (B) LOGIN PAGE
-$_PMETA = [
-  "title" => "Cadre Login",
-  "load" => [["s", HOST_ASSETS."PAGE-login.js"]]
-];
+$_PMETA = ["load" => [["s", HOST_ASSETS."PAGE-login.js"]]];
 require PATH_PAGES . "TEMPLATE-top.php"; ?>
 <div class="row justify-content-center">
 <div class="col-md-10 bg-white border">

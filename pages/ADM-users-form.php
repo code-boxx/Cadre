@@ -37,7 +37,7 @@ if ($edit) {
       <div class="input-group-prepend">
         <span class="input-group-text mi">gpp_good</span>
       </div>
-      <select class="form-control" id="user_level" required><?php
+      <select class="form-select" id="user_level" required><?php
         foreach (USR_LEVELS as $l=>$ln) {
           printf("<option %svalue='%s'>%s</option>",
             $l==$user["user_level"]?"selected ":"", $l, $ln
@@ -54,6 +54,6 @@ if ($edit) {
     </div>
   </div>
 
-  <input type="button" class="col btn btn-danger btn-lg" value="Back" onclick="cb.page(0)">
-  <input type="submit" class="col btn btn-primary btn-lg" value="Save">
+  <input type="button" class="col btn btn-danger" value="Back" onclick="cb.page(0)">
+  <input type="submit" class="col btn btn-primary" value="Save">
 </form>

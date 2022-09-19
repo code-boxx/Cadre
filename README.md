@@ -24,7 +24,6 @@ Just access `http://your-site.com/` in your browser and walk through the install
 1) Manage staff – Add/update/suspend.
 2) Manage leave – Apply, approve, and deny.
 3) Progressive web app.
-4) Maybe more in the future – Reports, calendar, timesheet, etc…
 <br><br>
 
 ## DOCUMENTATION & FRAMEWORKS
