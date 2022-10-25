@@ -1,12 +1,21 @@
 ## CADRE
-Cadre is a free and open-source PHP Staff Management System. Not the best in the world, but this simple portal has the basic features to help small companies to get started quickly.
+Cadre is an open-source PHP Staff Management System. This is not a system with a ton of "brutal features" that you will never use. Cadre is a simple system that will help small companies to get started quickly.
+<br><br>
+
+## FEATURES
+1) Manage staff – Add/update/suspend.
+2) Manage leave – Apply, approve, and deny.
+3) Progressive web app.
 <br><br>
 
 ## SCREENSHOTS
 <p float="left">
-<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-1.png">
-<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-2.png">
-<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-ss-3.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-1.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-2.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-3.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-4.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-5.png">
+<img width="250" style="inline-block" src="https://github.com/code-boxx/Cadre/blob/main/assets/cadre-6.png">
 </p><br><br>
 
 ## REQUIREMENTS
@@ -20,14 +29,8 @@ Cadre is a free and open-source PHP Staff Management System. Not the best in the
 Just access `http://your-site.com/` in your browser and walk through the installer.
 <br><br>
 
-## FEATURES
-1) Manage staff – Add/update/suspend.
-2) Manage leave – Apply, approve, and deny.
-3) Progressive web app.
-<br><br>
-
 ## DOCUMENTATION & FRAMEWORKS
-1) Built on [Bootstrap](https://getbootstrap.com/), [Material Icons](https://fonts.google.com/icons), and [Core Boxx](https://code-boxx.com/core-boxx-php-rapid-development-framework/).
+1) Built on [Bootstrap](https://getbootstrap.com/), [Material Icons](https://fonts.google.com/icons), [PHP-JWT](https://github.com/firebase/php-jwt), and [Core Boxx](https://code-boxx.com/core-boxx-php-framework/).
 2) Visit https://code-boxx.com/cadre-php-staff-management-system/ for the full documentation.
 <br><br>
 
