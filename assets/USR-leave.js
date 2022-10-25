@@ -4,8 +4,7 @@ var leave = {
   list : () => {
     cb.page(0);
     cb.load({
-      page : "staff/leave/list",
-      target : "leave-list",
+      page : "staff/leave/list", target : "leave-list",
       data : { year : leave.year }
     });
   },
@@ -18,13 +17,10 @@ var leave = {
   },
 
   // (C) APPLY LEAVE PART 1
-  apply : () => {
-    cb.load({
-      page : "staff/leave/form/a",
-      target : "cb-page-2",
-      onload : () => { cb.page(1); }
-    });
-  },
+  apply : () => cb.load({
+    page : "staff/leave/form/a", target : "cb-page-2",
+    onload : () => cb.page(1)
+  }),
 
   // (D) APPLY LEAVE PART 2
   applyDays : () => {
@@ -40,8 +36,7 @@ var leave = {
 
     // (D3) OK - SHOW DAYS DOCKET
     cb.load({
-      page : "staff/leave/form/b",
-      target : "cb-page-3",
+      page : "staff/leave/form/b", target : "cb-page-3",
       data : {
         from : document.getElementById("apply_from").value,
         to : document.getElementById("apply_to").value
@@ -97,25 +92,18 @@ var leave = {
   },
 
   // (G) SHOW LEAVE DAYS
-  show : (id) => {
-    cb.load({
-      page : "staff/leave/show",
-      target : "cb-page-2",
-      data : { id : id },
-      onload : () => { cb.page(1); }
-    });
-  },
+  show : id => cb.load({
+    page : "staff/leave/show", target : "cb-page-2",
+    data : { id : id },
+    onload : () => cb.page(1)
+  }),
 
   // (H) CANCEL LEAVE
-  cancel : (id) => {
-    cb.modal("Please Confirm", "Cancel leave?", () => {
-      cb.api({
-        mod : "leave", req : "cancel",
-        data : { id : id },
-        passmsg : "Leave canceled",
-        onpass : leave.list
-      });
-    });
-  }
+  cancel : id => cb.modal("Please Confirm", "Cancel leave?", () => cb.api({
+    mod : "leave", req : "cancel",
+    data : { id : id },
+    passmsg : "Leave canceled",
+    onpass : leave.list
+  }))
 };
 window.addEventListener("load", leave.set);

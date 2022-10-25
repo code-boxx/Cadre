@@ -6,8 +6,7 @@ var usr = {
   list : () => {
     cb.page(0);
     cb.load({
-      page : "admin/users/list",
-      target : "usr-list",
+      page : "admin/users/list", target : "usr-list",
       data : {
         page : usr.pg,
         search : usr.find,
@@ -18,7 +17,7 @@ var usr = {
 
   // (B) GO TO PAGE
   //  pg : page number
-  goToPage : (pg) => { if (pg!=usr.pg) {
+  goToPage : pg => { if (pg!=usr.pg) {
     usr.pg = pg;
     usr.list();
   }},
@@ -33,14 +32,12 @@ var usr = {
 
   // (D) SHOW ADD/EDIT DOCKET
   // id : user ID, for edit only
-  addEdit : (id) => {
-    cb.load({
-      page : "admin/users/form",
-      target : "cb-page-2",
-      data : { id : id ? id : "" },
-      onload : () => { cb.page(1); }
-    });
-  },
+  addEdit : id => cb.load({
+    page : "admin/users/form",
+    target : "cb-page-2",
+    data : { id : id ? id : "" },
+    onload : () => cb.page(1)
+  }),
 
   // (E) SAVE USER
   save : () => {
@@ -73,35 +70,24 @@ var usr = {
 
   // (F) SUSPEND USER
   //  id : user id
-  del : (id, confirm) => {
-    if (confirm) {
-      cb.api({
-        mod : "users",
-        req : "del",
-        data : { id : id },
-        passmsg : "User suspended",
-        onpass : usr.list
-      });
-    } else {
-      cb.modal("Please confirm", "Suspend this user account?", () => {
-        usr.del(id, true);
-      });
-    }
-  }
+  del : id => cb.modal("Please confirm", "Suspend this user account?", () => cb.api({
+    mod : "users", req : "del",
+    data : { id : id },
+    passmsg : "User suspended",
+    onpass : usr.list
+  }))
 };
 window.addEventListener("load", usr.search);
 
 var leave = {
   // (G) SHOW LEAVE ENTITLED DOCKET
   // id : user ID
-  entitle : (id) => {
-    cb.load({
-      page : "admin/leave/entitle",
-      target : "cb-page-2",
-      data : { id : id },
-      onload : () => { cb.page(1); }
-    });
-  },
+  entitle : id => cb.load({
+    page : "admin/leave/entitle",
+    target : "cb-page-2",
+    data : { id : id },
+    onload : () => cb.page(1)
+  }),
 
   // (H) SAVE LEAVE ENTITLED
   save : () => {
@@ -119,8 +105,7 @@ var leave = {
 
     // (H2) API CALL
     cb.api({
-      mod : "leave",
-      req : "saveEntitled",
+      mod : "leave", req : "saveEntitled",
       data : data,
       passmsg : "Leave updated"
     });

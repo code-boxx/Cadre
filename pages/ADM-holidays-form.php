@@ -29,7 +29,7 @@ if ($edit) {
       <div class="input-group-prepend">
         <span class="input-group-text mi">hourglass_bottom</span>
       </div>
-      <select class="form-control" id="holiday_half">
+      <select class="form-select" id="holiday_half">
         <option value="0">Full Day</option>
         <option value="1"<?=isset($day)&&$day["holiday_half"]==1?" selected":""?>>Half Day</option>
       </select>

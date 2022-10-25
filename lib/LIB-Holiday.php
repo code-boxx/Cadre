@@ -3,7 +3,7 @@ class Holiday extends Core {
   // (A) GET HOLIDAYS
   function getAll ($from, $to) {
     return $this->DB->fetchAll(
-      "SELECT * FROM `holidays` WHERE `holiday_date` BETWEEN ? AND ?",
+      "SELECT * FROM `holidays` WHERE `holiday_date` BETWEEN ? AND ? ORDER BY `holiday_date` ASC",
       [$from, $to], "holiday_date"
     );
   }

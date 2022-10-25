@@ -12,21 +12,25 @@ if (is_array($leave)) { foreach ($leave as $l) { ?>
       <?=$l["leave_from"]?> to <?=$l["leave_to"]?> 
       (<?=LEAVE_TYPES[$l["leave_type"]]?>)
     </div>
-    <div>
+    <span class="badge bg-<?=$l["leave_status"]=="A"?"success":"danger"?>">
       <?=LEAVE_STATUS[$l["leave_status"]]?>
-    </div>
+    </span>
   </div>
-  <div>
-    <button class="btn btn-danger btn-sm mi" 
-      <?php if ($l["leave_status"]=="P") { ?>
-      onclick="leave.cancel(<?=$l["leave_id"]?>)"
-      <?php } else { ?>
-      disabled
-      <?php } ?>>delete
+  <div class="dropdown">
+    <button class="btn btn-primary btn-sm mi" type="button" data-bs-toggle="dropdown">
+      more_vert
     </button>
-    <button class="btn btn-primary btn-sm mi" onclick="leave.show(<?=$l["leave_id"]?>)">
-      search
-    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li class="dropdown-item" onclick="leave.show(<?=$l["leave_id"]?>)">
+        <i class="mi mi-smol">search</i> View
+      </li>
+      <li class="dropdown-item<?=$l["leave_status"]=="P"?"":" disabled"?>" 
+        <?php if ($l["leave_status"]=="P") { ?>
+        onclick="leave.cancel(<?=$l["leave_id"]?>)"
+        <?php } ?>>
+        <i class="mi mi-smol">delete</i> Cancel
+      </li>
+    </ul>
   </div>
 </div>
 <?php }} else { echo "No records found."; } ?>

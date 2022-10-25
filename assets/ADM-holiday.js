@@ -4,8 +4,7 @@ var hol = {
   list : () => {
     cb.page(0);
     cb.load({
-      page : "admin/holidays/list",
-      target : "hol-list",
+      page : "admin/holidays/list", target : "hol-list",
       data : {
         from : hol.from,
         to : hol.to
@@ -24,14 +23,12 @@ var hol = {
 
   // (C) SHOW ADD/EDIT DOCKET
   // id : holiday ID, for edit only
-  addEdit : (id) => {
-    cb.load({
-      page : "admin/holidays/form",
-      target : "cb-page-2",
-      data : { id : id ? id : "" },
-      onload : () => { cb.page(1); }
-    });
-  },
+  addEdit : id => cb.load({
+    page : "admin/holidays/form",
+    target : "cb-page-2",
+    data : { id : id ? id : "" },
+    onload : () => cb.page(1)
+  }),
 
   // (D) SAVE HOLIDAY
   save : () => {
@@ -56,20 +53,11 @@ var hol = {
 
   // (E) DELETE HOLIDAY
   //  id : holiday id
-  del : (id, confirm) => {
-    if (confirm) {
-      cb.api({
-        mod : "holiday",
-        req : "del",
-        data : { id : id },
-        passmsg : "Holiday deleted",
-        onpass : hol.list
-      });
-    } else {
-      cb.modal("Please confirm", "Delete this holiday?", () => {
-        hol.del(id, true);
-      });
-    }
-  }
+  del : id => cb.modal("Please confirm", "Delete this holiday?", () => cb.api({
+    mod : "holiday", req : "del",
+    data : { id : id },
+    passmsg : "Holiday deleted",
+    onpass : hol.list
+  }))
 };
 window.addEventListener("load", hol.set);

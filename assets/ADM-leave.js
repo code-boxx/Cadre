@@ -5,8 +5,7 @@ var leave = {
   list : () => {
     cb.page(0);
     cb.load({
-      page : "admin/leave/list",
-      target : "leave-list",
+      page : "admin/leave/list", target : "leave-list",
       data : {
         page : leave.pg,
         year : leave.year
@@ -16,7 +15,7 @@ var leave = {
 
   // (B) GO TO PAGE
   //  pg : page number
-  goToPage : (pg) => { if (pg!=leave.pg) {
+  goToPage : pg => { if (pg!=leave.pg) {
     leave.pg = pg;
     leave.list();
   }},
@@ -32,29 +31,22 @@ var leave = {
   // (D) APPROVE/DENY LEAVE
   //  id : leave id
   //  approve : true/false
-  permit : (id, approve) => {
-    cb.api({
-      mod : "leave",
-      req : "permit",
-      data : {
-        id : id,
-        approve : approve ? 1 : 0
-      },
-      passmsg : "Leave updated",
-      onpass : leave.list
-    });
-  },
+  permit : (id, approve) => cb.api({
+    mod : "leave", req : "permit",
+    data : {
+      id : id,
+      approve : approve ? 1 : 0
+    },
+    passmsg : "Leave updated",
+    onpass : leave.list
+  }),
 
   // (E) CANCEL LEAVE
-  cancel : (id) => {
-    cb.modal("Please Confirm", "Cancel leave?", () => {
-      cb.api({
-        mod : "leave", req : "cancel",
-        data : { id : id },
-        passmsg : "Leave canceled",
-        onpass : leave.list
-      });
-    });
-  }
+  cancel : id => cb.modal("Please Confirm", "Cancel leave?", () => cb.api({
+    mod : "leave", req : "cancel",
+    data : { id : id },
+    passmsg : "Leave canceled",
+    onpass : leave.list
+  }))
 };
 window.addEventListener("load", leave.set);
